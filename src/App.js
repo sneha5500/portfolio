@@ -8,7 +8,13 @@ function App() {
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold">Hi, I'm Sneha 👋</h1>
         <p className="text-xl">Computer Science Student | SQL & Systems Enthusiast</p>
-        <button className="mt-4 px-4 py-2 bg-black text-white rounded">Download Resume</button>
+       <a 
+  href="/resume.pdf" 
+  download 
+  className="mt-4 inline-block px-4 py-2 bg-black text-white rounded"
+>
+  Download Resume
+</a>
       </section>
 
       {/* About Section */}
