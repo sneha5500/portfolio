@@ -31,42 +31,52 @@ const ClassicLayout = () => {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="border p-4 rounded">
-  <h3 className="text-xl font-bold">🏗️ Construction Project Dashboard</h3>
-  <p>
-    Built a full ETL-based construction dashboard to manage 3000+ sites,
-    workers, materials, ownership transfers, and project progress.
-  </p>
-  <ul className="list-disc list-inside mt-2">
-    <li>🔐 Login + Logout with session state</li>
-    <li>📦 Material usage and leftover tracking</li>
-    <li>💸 Salary reports based on work logs</li>
-    <li>📊 Live dashboard using Streamlit + SQLite</li>
-  </ul>
-  <div className="mt-3">
-    <a
-      className="text-blue-300 underline"
-      href="https://constructionprojectetl-dvui9a28qrt4efeuntf8app.streamlit.app"
-      target="_blank"
-      rel="noreferrer"
-    >
-      🔗 Live App
-    </a>{" "}
-    |{" "}
-    <a
-      className="text-blue-300 underline"
-      href="https://github.com/sneha5500/construction_project_etl"
-      target="_blank"
-      rel="noreferrer"
-    >
-      📁 GitHub Repo
-    </a>
-  </div>
-</div>
+          {/* ETL Construction Project */}
           <div className="border p-4 rounded">
-            <h3 className="text-xl font-bold">Facial Music Recommender</h3>
+            <h3 className="text-xl font-bold">🏗️ Construction Project Dashboard</h3>
+            <p>
+              Built a full ETL-based construction dashboard to manage 3000+ sites,
+              workers, materials, ownership transfers, and project progress.
+            </p>
+            <ul className="list-disc list-inside mt-2">
+              <li>🔐 Login + Logout with session state</li>
+              <li>📦 Material usage and leftover tracking</li>
+              <li>💸 Salary reports based on work logs</li>
+              <li>📊 Live dashboard using Streamlit + SQLite</li>
+              <li>📍 Top Project Area Insights with CSV → DB ETL</li>
+            </ul>
+            <div className="mt-3 space-x-4">
+              <a
+                className="text-blue-300 underline"
+                href="https://constructionprojectetl-dvui9a28qrt4efeuntf8app.streamlit.app"
+                target="_blank"
+                rel="noreferrer"
+              >
+                🚀 Live App
+              </a>
+              <a
+                className="text-blue-300 underline"
+                href="https://github.com/sneha5500/construction_project_etl"
+                target="_blank"
+                rel="noreferrer"
+              >
+                📁 GitHub Repo
+              </a>
+            </div>
+          </div>
+
+          {/* Facial Music Recommender Project */}
+          <div className="border p-4 rounded">
+            <h3 className="text-xl font-bold">🎵 Facial Music Recommender</h3>
             <p>Recommends songs based on facial emotion via OpenCV.</p>
-            <a href="#">View on GitHub</a>
+            <a 
+              className="text-blue-300 underline" 
+              href="https://github.com/sneha5500/facial-music-recommender" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              View on GitHub
+            </a>
           </div>
         </div>
       </section>
@@ -76,7 +86,7 @@ const ClassicLayout = () => {
         <h2 className="text-2xl font-semibold">Blog</h2>
         <div className="space-y-4">
           <div className="border p-4 rounded">
-            <h3 className="text-xl font-bold">WHAT IS DBMS</h3>
+            <h3 className="text-xl font-bold">📚 WHAT IS DBMS</h3>
             <p>
               Explained the core concept of Database Management Systems — what it is, how it works, and why it's essential.
               Covered CRUD operations, data integrity, crash recovery, and the importance of SQL as a query language.
@@ -92,7 +102,7 @@ const ClassicLayout = () => {
           </div>
 
           <div className="border p-4 rounded">
-            <h3 className="text-xl font-bold">My Learning Journey</h3>
+            <h3 className="text-xl font-bold">✍️ My Learning Journey</h3>
             <p>
               Reflecting on my recent learning progress — from SQL to systems, and how I built projects.
               Documented my experience with VPNs, MySQL Workbench, database restore/backup, stored procedures, and differences between DB engines.
@@ -125,8 +135,8 @@ const ClassicLayout = () => {
         <h2 className="text-2xl font-semibold">Contact</h2>
         <div className="flex space-x-4">
           <a href="mailto:snehareddy2430@gmail.com"><Mail /></a>
-          <a href="https://github.com/sneha5500"><Github /></a>
-          <a href="https://linkedin.com/in/snehagurram"><Linkedin /></a>
+          <a href="https://github.com/sneha5500" target="_blank" rel="noreferrer"><Github /></a>
+          <a href="https://linkedin.com/in/snehagurram" target="_blank" rel="noreferrer"><Linkedin /></a>
         </div>
       </section>
     </div>
