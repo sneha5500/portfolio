@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# User Profile Management System (UserWebApp)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack ASP.NET Core MVC web application designed to register users, upload their profile pictures, and select geographical location using an interactive map.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- ASP.NET Core MVC (.NET 8)
+- SQL Server (via Docker)
+- Entity Framework Core (EF Core)
+- Leaflet.js (for interactive maps)
+- HTML, Bootstrap, Razor Pages
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. User Registration
+- Input: Full Name, Country, Gender, Email, Phone, Date of Birth
+- File Upload: Profile Picture
+- Map Selection: Latitude and Longitude via interactive map
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. User Details Page
+- Displays all user details
+- Renders profile picture
+- Displays a Leaflet map with a pointer on user location
 
-### `npm test`
+### 3. Edit Profile
+- Pre-fills user data for editing
+- Allows updating profile picture and map location
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 4. Delete Profile
+- Deletes selected user safely from SQL Server database
 
-### `npm run build`
+### 5. Index View
+- Lists all users
+- Displays core info in table format
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Architecture
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### MVC Pattern
+- **Model** – `User.cs`: Defines user schema
+- **View** – Razor files in `/Views/Users/`: Handles display/UI
+- **Controller** – `UsersController.cs`: Contains business logic
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Database
+- SQL Server (Docker container)
+- `AppDbContext.cs` connects the model with DB
+- `DbSet<User>` represents the Users table
 
-### `npm run eject`
+## Application Flow
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Create (User Registration)
+- Form inputs → model binding
+- File upload saved to `/wwwroot/uploads`
+- Latitude & Longitude saved from map interaction
+- Data stored in DB using `_context.Users.Add(user)`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. View Details
+- Controller fetches user via `_context.Users.FirstOrDefaultAsync`
+- Razor View displays image and Leaflet map marker at location
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Edit
+- Fetches user by ID
+- Pre-fills data and allows edits
+- New profile picture and map location handled the same way
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 4. Delete
+- Confirms user intent
+- Deletes user from DB via `_context.Users.Remove(user)`
 
-## Learn More
+## Profile Picture Upload Logic
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- On submit, file is saved to `/wwwroot/uploads/`
+- File path is stored in the database (e.g. `/uploads/xyz.jpg`)
+- Razor view uses `<img src="~/@Model.ProfilePicturePath" />` to display image
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Map Integration (Leaflet.js)
 
-### Code Splitting
+- `leaflet.js` and `leaflet.css` added to layout/view
+- On Create/Edit:
+  - Map loads, user clicks to place marker
+  - Captures coordinates into hidden fields
+- On Details:
+  - Marker shown on stored coordinates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Project Structure
 
-### Analyzing the Bundle Size
+UserWebApp/
+│
+├── Controllers/
+│ └── UsersController.cs
+│
+├── Data/
+│ └── AppDbContext.cs
+│
+├── Models/
+│ └── User.cs
+│
+├── Views/
+│ ├── Users/
+│ │ ├── Create.cshtml
+│ │ ├── Edit.cshtml
+│ │ ├── Index.cshtml
+│ │ ├── Details.cshtml
+│ │ └── Delete.cshtml
+│ └── Shared/
+│ └── _Layout.cshtml
+│
+├── wwwroot/
+│ └── uploads/
+│
+├── appsettings.json
+├── Program.cs
+└── UserWebApp.csproj
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Summary
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This application is designed with a clean MVC architecture, allowing users to manage their profile with real-time location selection and image uploads. Data is stored securely and rendered dynamically with database integration and map support. It’s a fully functional CRUD system built with production-grade ASP.NET Core.
