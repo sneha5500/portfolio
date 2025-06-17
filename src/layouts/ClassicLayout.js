@@ -27,59 +27,72 @@ const ClassicLayout = () => {
         </p>
       </section>
 
-      {/* Projects Section */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* ETL Construction Project */}
-          <div className="border p-4 rounded">
-            <h3 className="text-xl font-bold">🏗️ Construction Project Dashboard</h3>
-            <p>
-              Built a full ETL-based construction dashboard to manage 3000+ sites,
-              workers, materials, ownership transfers, and project progress.
-            </p>
-            <ul className="list-disc list-inside mt-2">
-              <li>🔐 Login + Logout with session state</li>
-              <li>📦 Material usage and leftover tracking</li>
-              <li>💸 Salary reports based on work logs</li>
-              <li>📊 Live dashboard using Streamlit + SQLite</li>
-              <li>📍 Top Project Area Insights with CSV → DB ETL</li>
-            </ul>
-            <div className="mt-3 space-x-4">
-              <a
-                className="text-blue-300 underline"
-                href="https://constructionprojectetl-dvui9a28qrt4efeuntf8app.streamlit.app"
-                target="_blank"
-                rel="noreferrer"
-              >
-                🚀 Live App
-              </a>
-              <a
-                className="text-blue-300 underline"
-                href="https://github.com/sneha5500/construction_project_etl"
-                target="_blank"
-                rel="noreferrer"
-              >
-                📁 GitHub Repo
-              </a>
-            </div>
-          </div>
+     {/* Projects Section */}
+<section className="space-y-4">
+  <h2 className="text-2xl font-semibold">Projects</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    
+    {/* ETL Construction Project */}
+    <div className="border p-4 rounded">
+      <h3 className="text-xl font-bold">🏗️ Construction Project Dashboard</h3>
+      <p>
+        Built a full ETL-based construction dashboard to manage 3000+ sites,
+        workers, materials, ownership transfers, and project progress.
+      </p>
+      <ul className="list-disc list-inside mt-2">
+        <li>🔐 Login + Logout with session state</li>
+        <li>📦 Material usage and leftover tracking</li>
+        <li>💸 Salary reports based on work logs</li>
+        <li>📊 Live dashboard using Streamlit + SQLite</li>
+        <li>📍 Top Project Area Insights with CSV → DB ETL</li>
+      </ul>
+      <div className="mt-3 space-x-4">
+        <a
+          className="text-blue-300 underline"
+          href="https://constructionprojectetl-dvui9a28qrt4efeuntf8app.streamlit.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          🚀 Live App
+        </a>
+        <a
+          className="text-blue-300 underline"
+          href="https://github.com/sneha5500/construction_project_etl"
+          target="_blank"
+          rel="noreferrer"
+        >
+          📁 GitHub Repo
+        </a>
+      </div>
+    </div>
 
-          {/* Facial Music Recommender Project */}
-          <div className="border p-4 rounded">
-            <h3 className="text-xl font-bold">🎵 Facial Music Recommender</h3>
-            <p>Recommends songs based on facial emotion via OpenCV.</p>
-            <a 
-              className="text-blue-300 underline" 
-              href="https://github.com/sneha5500/facial-music-recommender" 
-              target="_blank" 
-              rel="noreferrer"
-            >
-              View on GitHub
-            </a>
-          </div>
-        </div>
-      </section>
+    {/* UserWebApp Project */}
+    <div className="border p-4 rounded">
+      <h3 className="text-xl font-bold">🧑‍💻 User Profile Management System</h3>
+      <p>
+        A full-stack ASP.NET Core MVC app to manage user profiles with image uploads and interactive map-based location selection.
+      </p>
+      <ul className="list-disc list-inside mt-2">
+        <li>Create, edit, and delete user profiles</li>
+        <li>Upload profile pictures (stored in wwwroot/uploads)</li>
+        <li>Location tracking using Leaflet maps (lat/lon)</li>
+        <li>Built with EF Core + SQL Server (via Docker)</li>
+      </ul>
+      <div className="mt-3 space-x-4">
+        <a
+          className="text-blue-300 underline"
+          href="https://github.com/sneha5500/UserWebApp"
+          target="_blank"
+          rel="noreferrer"
+        >
+          📁 GitHub Repo
+        </a>
+      </div>
+    </div>
+
+  </div> {/* <-- This was missing */}
+</section>
+
 
       {/* Blog Section */}
       <section className="space-y-4">
